@@ -1,68 +1,64 @@
 const button = document.querySelector('.button-add-task')
 const input = document.querySelector('.input-task')
-const completeList = document.querySelector('.list-tasks')
+const listaCompleta = document.querySelector('.list-tasks')
 
+let minhaListaDeItens = []
 
-let myListItens = []
+function adicionarNovaTarefa() {
+  minhaListaDeItens.push({
+    tarefa: input.value,
+    concluida: false,
+  })
 
-function addTask() {
+  input.value = ''
 
-if(input.value == ""){
-        alert("Digite algo meu usuário maravilhoso!");
-}else{
-    myListItens.push({ tarefa: input.value, concluida: false });
-
-    input.value = ""
-
-    showTasks();
-
+  mostrarTarefas()
 }
 
-    
-}
+function mostrarTarefas() {
+  let novaLi = ''
 
-function showTasks() {
 
-    let newLi = '';
+  minhaListaDeItens.forEach((item, posicao) => {
+    novaLi =
+      novaLi +
+      `
 
-    myListItens.forEach((item, index) => {
-        newLi = newLi +
-
-            `
-        <li class="task ${item.concluida && "done" }">
-            <img  src="./img/checked.png" alt="check-na-tarefa" onclick="concluirTarefa(${index})">
+        <li class="task ${item.concluida && 'done'}">
+            <img src="./img/checked.png" alt="check-na-tarefa" onclick="concluirTarefa(${posicao})">
             <p>${item.tarefa}</p>
-            <img src="./img/trash.png" alt="excluir-lixeira" onclick="deleteItem(${index})">
+            <img src="./img/trash.png" alt="tarefa-para-o-lixo" onclick="deletarItem(${posicao})">
         </li>
-
+        
         `
-    })
-    completeList.innerHTML = newLi
+  })
 
-    localStorage.setItem('lista', JSON.stringify(myListItens))
+  listaCompleta.innerHTML = novaLi
 
+  localStorage.setItem('lista', JSON.stringify(minhaListaDeItens))
 }
 
-function loadItens(){
-    const tarefasDoLocalStorage = localStorage.getItem('lista');
+function concluirTarefa(posicao) {
+  minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida
 
-    myListItens = JSON.parse(tarefasDoLocalStorage);
-
-    showTasks();
+  mostrarTarefas()
 }
 
-loadItens();
+function deletarItem(posicao) {
+  minhaListaDeItens.splice(posicao, 1)
 
-function deleteItem(index) {
-    myListItens.splice(index, 1)
-    showTasks()
+  mostrarTarefas()
 }
 
-function concluirTarefa(index) {    
-    myListItens[index].concluida = !myListItens[index].concluida
-    showTasks();
+function recarregarTarefas() {
+  const tarefasDoLocalStorage = localStorage.getItem('lista')
+
+  if (tarefasDoLocalStorage) {
+    minhaListaDeItens = JSON.parse(tarefasDoLocalStorage)
+  }
+
+  mostrarTarefas()
 }
 
-
-button.addEventListener('click', addTask)
-
+recarregarTarefas()
+button.addEventListener('click', adicionarNovaTarefa)
