@@ -9,9 +9,13 @@
 
 
 body{
-    background: url("./img/background.png");
+    /* background: url("./img/background.png"); */
     background-size: cover;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-image: url("https://source.unsplash.com/1600x900/?landscape");
 }
 
 
@@ -104,6 +108,13 @@ img {
         padding-left: 10px;
         font-size: 15px;
     }
+
+    
+    img {
+        width: 30px;
+    }
+    
+
     
     .button-add-task{
         font-size: 13px;
