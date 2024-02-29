@@ -112,6 +112,12 @@ img {
     
     img {
         width: 30px;
+        opacity: 1;
+    }
+
+    .task:hover img{
+        opacity: 1;
+         
     }
     
 
