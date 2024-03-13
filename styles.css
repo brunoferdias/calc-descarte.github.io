@@ -27,10 +27,19 @@ body{
     margin: 100px auto 0;
 }
 
-.input-task{
+.input-papel{
     border: none;
     border-radius: 10px;
-    width: 300px;
+    width: 30%;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 17px;
+}
+
+.input-efi {
+    border: none;
+    border-radius: 10px;
+    width: 30%;
     height: 40px;
     padding-left: 10px;
     font-size: 17px;
@@ -57,25 +66,23 @@ body{
     opacity: 0.6;
 }
 
-.list-tasks{
-    width: 100%;
-    list-style: none;
+
+.btn-enviar{
+    font-size: 20px;
+    background-color: #003329;
+    color: #FFF;
+    padding: 6px 8px;
     margin-top: 30px;
-
+    border-radius: 10px;
+    border: none;
+    transition: .5s;
 }
 
-.task{
-    background-color: #F2F2F2;
-    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    cursor: pointer;
+.btn-enviar:hover{
+    transform: scale(1.15);
 }
+
+
 
 
 img {
@@ -90,9 +97,12 @@ img {
 }
 
 
-.done {
-    background-color: #85ac55;
-    text-decoration: line-through;
+
+
+
+.resultado{
+    margin-top: 40px;
+    font-size: 18px;
 }
 
 @media screen and (max-width: 768px){
@@ -102,12 +112,7 @@ img {
         padding: 12px;
     }
 
-    .input-task{
-       
-        width: 230px;
-        padding-left: 10px;
-        font-size: 15px;
-    }
+   
 
     
     img {
@@ -130,9 +135,7 @@ img {
         font-weight: 700;
     }
 
-    .task{
-        font-size: 14px;
-    }
+    
 
 
 }
