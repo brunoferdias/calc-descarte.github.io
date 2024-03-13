@@ -6,7 +6,7 @@ const btnEnviar = document.querySelector('.btn-enviar');
 
 // Variáveis para os multiplicadores
 const multiplicadorQuebra = 450;
-const multiplicadorEficiencia = 234.5;
+const multiplicadorEficiencia = 235.52;
 
 function calcularDescarte() {
   const quebra = parseFloat(inputQuebra.value);
