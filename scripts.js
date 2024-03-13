@@ -40,7 +40,7 @@ function calcularDescarte() {
   const porcentagem = (valorTotalQuebra / valorTotalEficiencia) * 100;
 
   // Texto do resultado com HTML
-  const textoResultado = `${saudacao}!<br><br>Descartamos ${valorTotalQuebra.toLocaleString()} garrafas hoje.<br>Que equivale a aproximadamente ${porcentagem.toFixed(2).replace('.', ',')}% da nossa produção.<br><br>Obrigado!`;
+  const textoResultado = `${saudacao}!<br><br>Descartamos ${valorTotalQuebra.toLocaleString()} garrafas hoje.<br>Que equivale a aproximadamente ${porcentagem.toFixed(2).replace('.', ',')}% da nossa produção.<br><br>Isso é tudo,<br>Bom descanso a todos!`;
 
   resultadoElement.innerHTML = textoResultado;
 
